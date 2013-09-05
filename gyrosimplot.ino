@@ -37,7 +37,7 @@ Serial.println(roll0);
 }
 
 void receiveData(){
-wmpSendZero(); //send zero before each request (same as nunchuck)
+wmpSendZero(); //send zero before each request 
 Wire.requestFrom(0x52,6); //request the six bytes from the WM+
 for (int i=0;i<6;i++){
 data[i]=Wire.read();
@@ -46,11 +46,8 @@ yaw=((data[3]>>2)<<8)+data[0]-yaw0;
 pitch=((data[4]>>2)<<8)+data[1]-pitch0;
 roll=((data[5]>>2)<<8)+data[2]-roll0;
 }
-//see http://wiibrew.org/wiki/Wiimote/Extension_Controllers#Wii_Motion_Plus
-//for info on what each byte represents
+
 void setup(){
-//Serial.begin(115200);
-//Serial.println("WM+ tester");
 Serial.begin(57600); 
 Wire.begin();
 wmpOn(); //turn WM+ on
@@ -66,7 +63,7 @@ int buffer[20]; //Buffer needed to store data packet for transmission
 void loop(){
 receiveData(); //receive data and calculate yaw pitch and roll
 
-/*Serial.print("yaw:");//see diagram on randomhacksofboredom.blogspot.com
+/*Serial.print("yaw:");
 Serial.print(yaw); //for info on which axis is which
 Serial.print(" pitch:");
 Serial.print(pitch);
