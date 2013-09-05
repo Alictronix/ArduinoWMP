@@ -55,10 +55,7 @@ calibrateZeroes(); //calibrate zeroes
 delay(1000);
 }
 int buffer[20]; //Buffer needed to store data packet for transmission
-//int data1;
-//int data2;
-//int data3;
-//int data4;
+
 
 void loop(){
 receiveData(); //receive data and calculate yaw pitch and roll
